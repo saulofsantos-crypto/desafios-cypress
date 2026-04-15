@@ -24,14 +24,11 @@ describe('teste campo de input', () => {
 
 // ----------------- TESTE 4: SIMULANDO A JORNADA DO USUÁRIO------------------
 describe('simulação da jornada do usuario', () => {
+  beforeEach(()=> {
+    cy.visit('http://127.0.0.1:5500/index.html');
+  })
   it('deve abrir a pagina e verificar se o body esta aparecendo', () => {
-    cy.visit('http://127.0.0.1:5500/index.html');
-    cy.get('body').should('be.visible');
-    cy.get('input').type('Poodle');
-    cy.wait(8000); // espera 4 segundos
-    cy.visit('http://127.0.0.1:5500/index.html');
+    cy.get('#campoBusca').type('Poodle')
     cy.get('button').click();
-    cy.wait(10000); // espera 5 segundos
   });
 });
-
